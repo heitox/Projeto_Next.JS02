@@ -1,0 +1,94 @@
+:root {
+    --bg-main: #0a0a0f;
+    --bg-card: #13131a;
+    --text-primary: #ffffff;
+    --text-secondary: #a7a7a7;
+    --text-muted: #d4d4d4;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-hover: #a7a7a7;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --shadow-hover: rgba(167, 167, 167, 0.15);
+  
+    --font-main: "Roboto", sans-serif;
+  }
+  
+  main {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 3rem 2rem;
+    font-family: var(--font-main);
+  }
+  
+  main h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    letter-spacing: 0.05rem;
+  }
+  
+  .users-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 900px) {
+    .users-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .users-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 0.8rem;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    transition: 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-hover);
+    box-shadow: 0 8px 25px var(--shadow-hover);
+  }
+  
+  .card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 2px solid var(--text-secondary);
+  }
+  
+  .card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .card .phone {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  
+  .card .email {
+    margin-top: 0.8rem;
+    font-size: 1.3rem;
+    color: var(--text-muted);
+  }
+  
+  .card .email b {
+    color: var(--text-primary);
+  }

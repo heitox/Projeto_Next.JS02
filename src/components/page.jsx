@@ -1,9 +1,11 @@
-export default function CardUsuario(image, firstname, lastname, age, phone, email) {
+import "@/components/cardUsers.css"
+
+export default function CardUsuario({image, firstName, lastName, age, phone, email}) {
     return(
         <div className="card">
             <img src={image} alt="" />
               <h3>
-                {firstname} {lastname}
+                {firstName} {lastName}
               </h3>
               <h3>Idade: {age}</h3>
               <h3 className="phone">Telefone: {phone}</h3>
