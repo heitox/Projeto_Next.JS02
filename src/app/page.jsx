@@ -1,5 +1,5 @@
 "use client";
-import CardUsuario from "@/components/page.jsx";
+import CardUsuario from "@/components/cardUsers/page.jsx";
 import { useState, useEffect } from "react";
 
 export default function Usuarios() {

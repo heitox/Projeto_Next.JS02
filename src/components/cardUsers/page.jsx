@@ -1,4 +1,4 @@
-import "@/components/cardUsers.css"
+import "@/components/cardUsers/cardUsers.css"
 
 export default function CardUsuario({image, firstName, lastName, age, phone, email}) {
     return(
