@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 
 export default function Filme() {
   const params = useParams();
-  const [filme, setFilme] = useState();
+  const [receita, setReceita] = useState();
 
   useEffect(() => {
-    const filmeEncontrado = dados.find((f) => f.id == params.id);
-    setFilme(filmeEncontrado);
+    const receitaEncontrada = dados.find((f) => f.id == params.id);
+    setReceita(receitaEncontrada);
   }, []);
 
   return (
@@ -16,15 +16,15 @@ export default function Filme() {
       {filme && (
         <div className="detalhe-container">
           <div className="detalhe-img-wrap">
-            <img src={filme.imagem} alt={filme.titulo} />
+            <img src={receita.imagem} alt={receita.titulo} />
           </div>
           <div className="detalhe-info">
-            <h1 className="detalhe-titulo">{filme.titulo}</h1>
+            <h1 className="detalhe-titulo">{receita.titulo}</h1>
             <ul className="detalhe-lista">
-              <li><strong>Ano:</strong> {filme.ano}</li>
-              <li><strong>Gênero:</strong> {filme.genero}</li>
+              <li><strong>Ano:</strong> {receita.ano}</li>
+              <li><strong>Gênero:</strong> {receita.genero}</li>
             </ul>
-            <p className="detalhe-sinopse">{filme.sinopse}</p>
+            <p className="detalhe-sinopse">{receita.sinopse}</p>
           </div>
         </div>
       )}

@@ -1,5 +1,5 @@
 "use client";
-import CardReceitas from "@/components/receitas/page.jsx";
+import CardReceitas from "@/components/receitas/page";
 import { useState, useEffect } from "react";
 
 export default function Usuarios() {
@@ -23,17 +23,15 @@ export default function Usuarios() {
       {msgErro != "" && <p>Erro: {msgErro}</p>}
 
       {listaReceitas.length > 0 ? (
-        <div className="Receitas-grid">
-          {listaReceitas.map((receitas) => {
-            return (
-              <CardReceitas
-                key={receitas.id}
-                image={receitas.image}
-                firstName={receitas.name}
-                link={receitas.link}
-              />
-            );
-          })}
+        <div className="container-receitas">
+          {listaReceitas.map((receita) => (
+            <CardReceitas
+              key={receita.id}
+              id={receita.id}
+              image={receita.image}
+              name={receita.name}
+            />
+          ))}
         </div>
       ) : (
         <div>Sem receitas no momento!! tente mais tarde...</div>
