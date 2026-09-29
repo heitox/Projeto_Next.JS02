@@ -9,7 +9,7 @@ export default function Filme() {
   useEffect(() => {
     const receitaEncontrada = dados.find((f) => f.id == params.id);
     setReceita(receitaEncontrada);
-  }, []);
+  }, []);z
 
   return (
     <main className="main-detalhe">
