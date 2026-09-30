@@ -1,33 +1,41 @@
 "use client";
+import SobreReceitas from "@/components/receitas/sobreReceitas/page";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function Filme() {
+export default function Receita() {
   const params = useParams();
-  const [receita, setReceita] = useState();
+  const [receita, setReceita] = useState(null);
+  const [msgErro, setMsgErro] = useState("");
 
   useEffect(() => {
-    const receitaEncontrada = dados.find((f) => f.id == params.id);
-    setReceita(receitaEncontrada);
-  }, []);z
+    fetch(`https://dummyjson.com/recipes/${params.id}`)
+      .then((res) => {
+        if (!res.ok) throw new Error("Receita não encontrada");
+        return res.json();
+      })
+      .then((data) => setReceita(data))
+      .catch((err) => setMsgErro(err.message));
+  }, [params.id]);
+
+  if (msgErro) return <p>Erro: {msgErro}</p>;
+  if (!receita) return <p>Carregando...</p>;
 
   return (
-    <main className="main-detalhe">
-      {filme && (
-        <div className="detalhe-container">
-          <div className="detalhe-img-wrap">
-            <img src={receita.imagem} alt={receita.titulo} />
-          </div>
-          <div className="detalhe-info">
-            <h1 className="detalhe-titulo">{receita.titulo}</h1>
-            <ul className="detalhe-lista">
-              <li><strong>Ano:</strong> {receita.ano}</li>
-              <li><strong>Gênero:</strong> {receita.genero}</li>
-            </ul>
-            <p className="detalhe-sinopse">{receita.sinopse}</p>
-          </div>
-        </div>
-      )}
+    <main>
+      <SobreReceitas
+        id={receita.id}
+        name={receita.name}
+        image={receita.image}
+        ingredients={receita.ingredients}
+        instructions={receita.instructions}
+        difficulty={receita.difficulty}
+        cuisine={receita.cuisine}
+        caloriesPerServing={receita.caloriesPerServing}
+        prepTimeMinutes={receita.prepTimeMinutes}
+        cookTimeMinutes={receita.cookTimeMinutes}
+        servings={receita.servings}
+      />
     </main>
   );
 }
